@@ -1,4 +1,4 @@
-#include "fsm.h"
+#include "robber.h"
 
 const char* state_qoutes[] = {
     "I'm robbing banks and getting loads of money! Pew pew!",

@@ -1,4 +1,4 @@
-#include "fsm.h"
+#include "robber.h"
 
 int
 main(int argc, char const* argv[])

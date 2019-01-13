@@ -1,5 +1,5 @@
-#ifndef FSM_H
-#define FSM_H
+#ifndef ROBBER_H
+#define ROBBER_H
 
 #include <iostream>
 #include <string.h>
@@ -20,4 +20,4 @@ transition(State* current_state, std::string trigger);
 void
 print_state_quote(State state);
 
-#endif // FSM_H
+#endif // ROBBER_H
