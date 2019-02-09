@@ -102,14 +102,6 @@ transition(State* current_state, std::string trigger)
             }
         }
     }
-    // If no match was found
-    std::cout << "No match was found for: " << trigger << std::endl;
-    printf("Possible inputs: \n");
-    for (int i = 0; i < n_transitions; i++) {
-        if (*current_state == transitions[i].state) {
-            std::cout << "  - " << transitions[i].trigger << std::endl;
-        }
-    }
 }
 
 void
