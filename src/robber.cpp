@@ -9,42 +9,42 @@ const char* state_qoutes[] = {
     "I got caught and have to spand time in prison :("
 };
 
-static enum State
+static int
 get_rich()
 {
     printf("I'm rich enough to have a good time.\n");
     return HavingGoodTime;
 }
 
-static enum State
+static int
 get_tired()
 {
     printf("I'm getting tired. Let's take it a bit easier.\n");
     return LayingLow;
 }
 
-static enum State
+static int
 get_caught()
 {
     printf("Oh no! The cops are closing in! Nooo, they got me!\n");
     return Imprisoned;
 }
 
-static enum State
+static int
 get_bored()
 {
     printf("I'm so rich. I'm getting bored. Let's do something fun.\n");
     return Gambling;
 }
 
-static enum State
+static int
 get_broke()
 {
     printf("I had an unlucky day. I lost all me money. I'm screwed.\n");
     return LayingLow;
 }
 
-static enum State
+static int
 feel_safe()
 {
     printf(
@@ -52,61 +52,33 @@ feel_safe()
     return RobbingBank;
 }
 
-static enum State
+static int
 escape()
 {
     printf("I've thaught of a plan to get out of this stinky place.\n");
     return LayingLow;
 }
 
-static enum State
+static int
 spot_cop()
 {
     printf("I see a cop, so I have to start running!\n");
     return Fleeing;
 }
 
-typedef struct _STransition
-{
-    enum State state;
-    std::string trigger;
-    enum State (*transition_handler)(void);
-} STransition;
-
-STransition transitions[] = {
-    { RobbingBank, "Get rich", &get_rich },
-    { RobbingBank, "Spot cop", &spot_cop },
-    { HavingGoodTime, "Get tired", &get_tired },
-    { HavingGoodTime, "Spot cop", &spot_cop },
-    { HavingGoodTime, "Get bored", &get_bored },
-    { Fleeing, "Feel safe", &feel_safe },
-    { Fleeing, "Get tired", &get_tired },
-    { Fleeing, "Get caught", &get_caught },
-    { LayingLow, "Feel safe", &feel_safe },
-    { Gambling, "Spot cop", &spot_cop },
-    { Gambling, "Get broke", &get_broke },
-    { Imprisoned, "Get caught", &get_caught },
+const STransition transitions[] = {
+    { RobbingBank, GetRich, &get_rich },
+    { RobbingBank, SpotCop, &spot_cop },
+    { HavingGoodTime, GetTired, &get_tired },
+    { HavingGoodTime, SpotCop, &spot_cop },
+    { HavingGoodTime, GetBored, &get_bored },
+    { Fleeing, FeelSafe, &feel_safe },
+    { Fleeing, GetTired, &get_tired },
+    { Fleeing, GetCaught, &get_caught },
+    { LayingLow, FeelSafe, &feel_safe },
+    { Gambling, SpotCop, &spot_cop },
+    { Gambling, GetBroke, &get_broke },
+    { Imprisoned, GetCaught, &get_caught },
 };
 
-const short n_transitions = 12;
-
-void
-transition(State* current_state, std::string trigger)
-{
-    // Seek correct state transition handler
-    for (short i = 0; i < n_transitions; i++) {
-        if (*current_state == transitions[i].state) {
-            if (trigger == transitions[i].trigger) {
-                *current_state = (transitions[i].transition_handler)();
-                return;
-            }
-        }
-    }
-}
-
-void
-print_state_quote(State state)
-{
-    // Print out current state sentence
-    printf("%s\n", state_qoutes[state]);
-}
+const uint16_t n_transitions = 12;

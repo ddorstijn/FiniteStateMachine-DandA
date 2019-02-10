@@ -1,8 +1,7 @@
 #ifndef ROBBER_H
 #define ROBBER_H
 
-#include <iostream>
-#include <string.h>
+#include "fsm.h"
 
 enum State
 {
@@ -14,10 +13,24 @@ enum State
     Imprisoned
 };
 
-void
-transition(State* current_state, std::string trigger);
+typedef struct _Robber
+{
+    State state;
+    uint32_t money;
+    uint8_t comfort_level;
+    uint8_t boredness;
+    node_t* event_queue;
+} Robber;
 
-void
-print_state_quote(State state);
+enum Events
+{
+    GetRich,
+    SpotCop,
+    GetTired,
+    GetBored,
+    FeelSafe,
+    GetCaught,
+    GetBroke
+};
 
 #endif // ROBBER_H
