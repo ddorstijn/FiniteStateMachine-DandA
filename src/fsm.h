@@ -14,8 +14,8 @@ enum TriggerType
 
 typedef struct _State
 {
-    int state_id;
-    void* state_function;
+    int state_id; // This is corresponding to the state location in the enum
+    void* state_function; // Function that continuously runs during the state
 } State;
 
 typedef struct _STransition

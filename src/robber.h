@@ -15,7 +15,8 @@ enum States
 
 typedef struct _Robber
 {
-    States state;
+    State* states;
+    States active_state;
     uint32_t money;
     uint8_t comfort_level;
     uint8_t boredness;
