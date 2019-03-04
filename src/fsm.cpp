@@ -2,7 +2,7 @@
 
 void
 transition(int current_state, node_t* queue, STransition* transitions,
-           uint n_transitions)
+           uint32_t n_transitions)
 {
     int event = dequeue(&queue);
     // Seek correct state transition handler

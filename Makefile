@@ -1,9 +1,9 @@
-CC=g++
+CC=clang++
 
 src = $(wildcard src/*.cpp)
 obj = $(src:.cpp=.o)
 
-CFLAGS = -O3
+CFLAGS = -g
 
 .cpp.o:
 	$(CC) $(CFLAGS) -c $< -o $@

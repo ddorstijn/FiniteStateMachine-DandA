@@ -3,7 +3,7 @@
 
 #include "fsm.h"
 
-enum State
+enum States
 {
     RobbingBank,
     HavingGoodTime,
@@ -15,7 +15,7 @@ enum State
 
 typedef struct _Robber
 {
-    State state;
+    States state;
     uint32_t money;
     uint8_t comfort_level;
     uint8_t boredness;

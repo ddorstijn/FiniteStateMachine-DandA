@@ -27,7 +27,7 @@ typedef struct _STransition
 
 void
 transition(int current_state, node_t* queue, STransition* transitions,
-           uint n_transitions);
+           uint32_t n_transitions);
 
 void
 print_state_quote(int state);

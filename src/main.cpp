@@ -19,17 +19,6 @@ main(int argc, char const* argv[])
 #else
         sleep(1);
 #endif
-
-        if (robber.state != FeelSafe && robber.state != Imprisoned &&
-            rand() % 5 == 0) {
-            enqueue(&robber.event_queue, SpotCop);
-        }
-
-        if (robber.state == RobbingBank) {
-            enqueue(&robber.event_queue, GetRich);
-            robber.money = 100000;
-            robber.boredness = 0;
-        }
     }
 
     return 0;
