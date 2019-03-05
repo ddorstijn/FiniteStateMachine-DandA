@@ -9,7 +9,7 @@ CFLAGS = -g
 	$(CC) $(CFLAGS) -c $< -o $@
 
 fsm: $(obj)
-	$(CC) $(CFLAGS) -o bin/$@.exe $^
+	$(CC) $(CFLAGS) -o bin/$@ $^
 
 .PHONY: clean fsm
 clean:

@@ -1,7 +1,6 @@
 #ifndef FSM_H
 #define FSM_H
 
-#include <iostream>
 #include <stdint.h>
 
 #include "queue.h"
@@ -12,12 +11,6 @@ enum TriggerType
     Condition
 };
 
-typedef struct _State
-{
-    int state_id; // This is corresponding to the state location in the enum
-    void* state_function; // Function that continuously runs during the state
-} State;
-
 typedef struct _STransition
 {
     int state;
@@ -26,10 +19,10 @@ typedef struct _STransition
 } STransition;
 
 void
-transition(int current_state, node_t* queue, STransition* transitions,
-           uint32_t n_transitions);
+process_events(int* current_state, node_t** event_queue,
+               const STransition* transitions, uint32_t n_transitions);
 
 void
-print_state_quote(int state);
+print_state_quote(int state, const char** state_qoutes);
 
 #endif // !FSM_H
