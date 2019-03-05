@@ -16,13 +16,13 @@ enum State
 typedef struct _Robber
 {
     int active_state;
-    uint32_t wealth;
-    uint8_t comfort;   // Comfort level in percentage
-    uint8_t boredness; // Bored level in percentage
-    uint8_t strength;  // Strength level in percentage
-    uint8_t distance_to_cop;
+    int32_t wealth;          // Money levels
+    uint8_t comfort;         // Comfort level in percentage
+    uint8_t boredness;       // Bored level in percentage
+    uint8_t strength;        // Strength level in percentage
+    uint8_t distance_to_cop; // 0 if is getting caught
 
-    node_t* events;
+    node_t* events; // An event queue for transition events
 } Robber;
 
 enum Events
@@ -34,7 +34,7 @@ enum Events
     FeelSafe,
     GetCaught,
     GetBroke,
-    Escape
+    EscapePrison
 };
 
 ///                 ///
@@ -104,6 +104,7 @@ const static STransition transitions[] = {
     { RobbingBank, GetRich, &get_rich },
     { RobbingBank, SpotCop, &spot_cop },
     { HavingGoodTime, GetTired, &get_tired },
+    { HavingGoodTime, GetBroke, &get_broke },
     { HavingGoodTime, SpotCop, &spot_cop },
     { HavingGoodTime, GetBored, &get_bored },
     { Fleeing, FeelSafe, &feel_safe },
@@ -112,9 +113,9 @@ const static STransition transitions[] = {
     { LayingLow, FeelSafe, &feel_safe },
     { Gambling, SpotCop, &spot_cop },
     { Gambling, GetBroke, &get_broke },
-    { Imprisoned, Escape, &escape },
+    { Imprisoned, EscapePrison, &escape },
 };
 
-const uint16_t n_transitions = 12;
+const uint16_t n_transitions = 13;
 
 #endif // ROBBER_H

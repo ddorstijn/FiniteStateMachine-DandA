@@ -1,4 +1,4 @@
-CC=clang++
+CC=g++
 
 src = $(wildcard src/*.cpp)
 obj = $(src:.cpp=.o)
@@ -9,7 +9,7 @@ CFLAGS = -g
 	$(CC) $(CFLAGS) -c $< -o $@
 
 fsm: $(obj)
-	$(CC) $(CFLAGS) -o bin/$@ $^
+	$(CC) $(CFLAGS) -o bin/$@.exe $^
 
 .PHONY: clean fsm
 clean:
