@@ -24,8 +24,8 @@ main(int argc, char const* argv[])
     cop.events = NULL;
 
     while (true) {
-        update_robber(&robber);
-        update_cop(&cop);
+        update_robber(&robber, &cop);
+        update_cop(&cop, &robber);
         process_events(&robber.active_state, &robber.events,
                        get_transition_table_robber(), n_transitions_robber);
         process_events(&cop.active_state, &cop.events,
@@ -35,7 +35,7 @@ main(int argc, char const* argv[])
 #ifdef _WIN32
         Sleep(1000);
 #else
-        // sleep(1);
+        /* sleep(1); */
 #endif
     }
 

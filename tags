@@ -1,0 +1,165 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_OUTPUT_MODE	u-ctags	/u-ctags or e-ctags/
+!_TAG_PROGRAM_AUTHOR	Universal Ctags Team	//
+!_TAG_PROGRAM_NAME	Universal Ctags	/Derived from Exuberant Ctags/
+!_TAG_PROGRAM_URL	https://ctags.io/	/official site/
+!_TAG_PROGRAM_VERSION	0.0.0	/45968eff/
+*.tcc	.vscode/settings.json	/^        "*.tcc": "cpp",$/;"	s	object:files.associations
+.cpp.o	Makefile	/^.cpp.o:$/;"	t
+0	.vscode/launch.json	/^                {$/;"	o	array:configurations.0.setupCommands
+0	.vscode/launch.json	/^                {$/;"	o	array:configurations.1.setupCommands
+0	.vscode/launch.json	/^        {$/;"	o	array:configurations
+1	.vscode/launch.json	/^        {$/;"	o	array:configurations
+CC	Makefile	/^CC=g++$/;"	m
+CFLAGS	Makefile	/^CFLAGS = -g$/;"	m
+COP_H	src/cop.h	/^#define COP_H$/;"	d
+CatchRobber	src/cop.h	/^    CatchRobber$/;"	e	enum:CopEvents
+Chasing	src/cop.h	/^    Chasing$/;"	e	enum:CopState
+Condition	src/fsm.h	/^    Condition$/;"	e	enum:TriggerType
+Cop	src/cop.h	/^} Cop;$/;"	t	typeref:struct:_Cop
+Cop	src/robber.h	/^typedef struct _Cop Cop;$/;"	t	typeref:struct:_Cop
+CopEvents	src/cop.h	/^enum CopEvents$/;"	g
+CopState	src/cop.h	/^enum CopState$/;"	g
+EscapePrison	src/robber.h	/^    EscapePrison$/;"	e	enum:RobberEvents
+FSM_H	src/fsm.h	/^#define FSM_H$/;"	d
+FeelSafe	src/robber.h	/^    FeelSafe,$/;"	e	enum:RobberEvents
+FinishDuty	src/cop.h	/^    FinishDuty,$/;"	e	enum:CopEvents
+Fleeing	src/robber.h	/^    Fleeing,$/;"	e	enum:RobberState
+Gambling	src/robber.h	/^    Gambling,$/;"	e	enum:RobberState
+GetBored	src/robber.h	/^    GetBored,$/;"	e	enum:RobberEvents
+GetBroke	src/robber.h	/^    GetBroke,$/;"	e	enum:RobberEvents
+GetCaught	src/robber.h	/^    GetCaught,$/;"	e	enum:RobberEvents
+GetRich	src/robber.h	/^    GetRich,$/;"	e	enum:RobberEvents
+GetTired	src/robber.h	/^    GetTired,$/;"	e	enum:RobberEvents
+HavingGoodTime	src/robber.h	/^    HavingGoodTime,$/;"	e	enum:RobberState
+Imprisoned	src/robber.h	/^    Imprisoned$/;"	e	enum:RobberState
+Input	src/fsm.h	/^    Input,$/;"	e	enum:TriggerType
+LayingLow	src/robber.h	/^    LayingLow,$/;"	e	enum:RobberState
+MIMode	.vscode/launch.json	/^            "MIMode": "gdb",$/;"	s	object:configurations.0
+MIMode	.vscode/launch.json	/^            "MIMode": "lldb",$/;"	s	object:configurations.1
+OffDuty	src/cop.h	/^    OffDuty,$/;"	e	enum:CopState
+OnStakeOut	src/cop.h	/^    OnStakeOut,$/;"	e	enum:CopState
+QUEUE_H	src/queue.h	/^#define QUEUE_H$/;"	d
+ROBBER_H	src/robber.h	/^#define ROBBER_H$/;"	d
+Robber	src/cop.h	/^typedef struct _Robber Robber;$/;"	t	typeref:struct:_Robber
+Robber	src/robber.h	/^} Robber;$/;"	t	typeref:struct:_Robber
+RobberEvents	src/robber.h	/^enum RobberEvents$/;"	g
+RobberState	src/robber.h	/^enum RobberState$/;"	g
+RobbingBank	src/robber.h	/^    RobbingBank,$/;"	e	enum:RobberState
+STransition	src/fsm.h	/^} STransition;$/;"	t	typeref:struct:_STransition
+SpotCop	src/robber.h	/^    SpotCop,$/;"	e	enum:RobberEvents
+SpotRobber	src/cop.h	/^    SpotRobber,$/;"	e	enum:CopEvents
+StartDuty	src/cop.h	/^    StartDuty,$/;"	e	enum:CopEvents
+TriggerType	src/fsm.h	/^enum TriggerType$/;"	g
+_Cop	src/cop.h	/^typedef struct _Cop$/;"	s
+_Robber	src/robber.h	/^typedef struct _Robber$/;"	s
+_STransition	src/fsm.h	/^typedef struct _STransition$/;"	s
+active_state	src/cop.h	/^    int active_state;$/;"	m	struct:_Cop	typeref:typename:int
+active_state	src/robber.h	/^    int active_state;$/;"	m	struct:_Robber	typeref:typename:int
+args	.vscode/launch.json	/^            "args": [],$/;"	a	object:configurations.0
+args	.vscode/launch.json	/^            "args": [],$/;"	a	object:configurations.1
+array	.vscode/settings.json	/^        "array": "cpp",$/;"	s	object:files.associations
+boredness	src/robber.h	/^    uint8_t boredness;       \/\/ Bored level in percentage$/;"	m	struct:_Robber	typeref:typename:uint8_t
+catch_robber	src/cop.cpp	/^catch_robber()$/;"	f	typeref:typename:int
+cctype	.vscode/settings.json	/^        "cctype": "cpp",$/;"	s	object:files.associations
+chasing	src/cop.cpp	/^chasing(Cop* cop, Robber* robber)$/;"	f	typeref:typename:void
+clean	Makefile	/^clean:$/;"	t
+clocale	.vscode/settings.json	/^        "clocale": "cpp",$/;"	s	object:files.associations
+comfort	src/robber.h	/^    uint8_t comfort;         \/\/ Comfort level in percentage$/;"	m	struct:_Robber	typeref:typename:uint8_t
+configurations	.vscode/launch.json	/^    "configurations": [$/;"	a
+cstdint	.vscode/settings.json	/^        "cstdint": "cpp",$/;"	s	object:files.associations
+cstdio	.vscode/settings.json	/^        "cstdio": "cpp",$/;"	s	object:files.associations
+cstdlib	.vscode/settings.json	/^        "cstdlib": "cpp",$/;"	s	object:files.associations
+cwchar	.vscode/settings.json	/^        "cwchar": "cpp",$/;"	s	object:files.associations
+cwctype	.vscode/settings.json	/^        "cwctype": "cpp",$/;"	s	object:files.associations
+cwd	.vscode/launch.json	/^            "cwd": "${workspaceFolder}",$/;"	s	object:configurations.0
+cwd	.vscode/launch.json	/^            "cwd": "${workspaceFolder}",$/;"	s	object:configurations.1
+dequeue	src/queue.cpp	/^dequeue(node_t** head)$/;"	f	typeref:typename:int
+description	.vscode/launch.json	/^                    "description": "Enable pretty-printing for gdb",$/;"	s	object:configurations.0.setupCommands.0
+description	.vscode/launch.json	/^                    "description": "Enable pretty-printing for gdb",$/;"	s	object:configurations.1.setupCommands.0
+distance_to_cop	src/robber.h	/^    uint8_t distance_to_cop; \/\/ 0 if is getting caught$/;"	m	struct:_Robber	typeref:typename:uint8_t
+dutyTime	src/cop.h	/^    int dutyTime;$/;"	m	struct:_Cop	typeref:typename:int
+enqueue	src/queue.cpp	/^enqueue(node_t** head, int val)$/;"	f	typeref:typename:void
+environment	.vscode/launch.json	/^            "environment": [],$/;"	a	object:configurations.0
+environment	.vscode/launch.json	/^            "environment": [],$/;"	a	object:configurations.1
+escape	src/robber.cpp	/^escape()$/;"	f	typeref:typename:int
+event_trigger	src/fsm.h	/^    int event_trigger;$/;"	m	struct:_STransition	typeref:typename:int
+events	src/cop.h	/^    node_t* events; \/\/ An event queue for transition events$/;"	m	struct:_Cop	typeref:typename:node_t *
+events	src/robber.h	/^    node_t* events; \/\/ An event queue for transition events$/;"	m	struct:_Robber	typeref:typename:node_t *
+exception	.vscode/settings.json	/^        "exception": "cpp",$/;"	s	object:files.associations
+externalConsole	.vscode/launch.json	/^            "externalConsole": true,$/;"	b	object:configurations.0
+externalConsole	.vscode/launch.json	/^            "externalConsole": true,$/;"	b	object:configurations.1
+feel_safe	src/robber.cpp	/^feel_safe()$/;"	f	typeref:typename:int
+files.associations	.vscode/settings.json	/^    "files.associations": {$/;"	o
+finish_duty	src/cop.cpp	/^finish_duty()$/;"	f	typeref:typename:int
+fleeing	src/robber.cpp	/^fleeing(Robber* robber, Cop* cop)$/;"	f	typeref:typename:void
+fsm	Makefile	/^fsm: $(obj)$/;"	t
+gambling	src/robber.cpp	/^gambling(Robber* robber, Cop* cop)$/;"	f	typeref:typename:void
+get_bored	src/robber.cpp	/^get_bored()$/;"	f	typeref:typename:int
+get_broke	src/robber.cpp	/^get_broke()$/;"	f	typeref:typename:int
+get_caught	src/robber.cpp	/^get_caught()$/;"	f	typeref:typename:int
+get_rich	src/robber.cpp	/^get_rich()$/;"	f	typeref:typename:int
+get_tired	src/robber.cpp	/^get_tired()$/;"	f	typeref:typename:int
+get_transition_table_cop	src/cop.cpp	/^get_transition_table_cop()$/;"	f	typeref:typename:const STransition *
+get_transition_table_robber	src/robber.cpp	/^get_transition_table_robber()$/;"	f	typeref:typename:const STransition *
+having_good_time	src/robber.cpp	/^having_good_time(Robber* robber, Cop* cop)$/;"	f	typeref:typename:void
+ignoreFailures	.vscode/launch.json	/^                    "ignoreFailures": true$/;"	b	object:configurations.0.setupCommands.0
+ignoreFailures	.vscode/launch.json	/^                    "ignoreFailures": true$/;"	b	object:configurations.1.setupCommands.0
+imprisoned	src/robber.cpp	/^imprisoned(Robber* robber, Cop* cop)$/;"	f	typeref:typename:void
+initializer_list	.vscode/settings.json	/^        "initializer_list": "cpp",$/;"	s	object:files.associations
+iosfwd	.vscode/settings.json	/^        "iosfwd": "cpp",$/;"	s	object:files.associations
+iostream	.vscode/settings.json	/^        "iostream": "cpp",$/;"	s	object:files.associations
+istream	.vscode/settings.json	/^        "istream": "cpp",$/;"	s	object:files.associations
+laying_low	src/robber.cpp	/^laying_low(Robber* robber, Cop* cop)$/;"	f	typeref:typename:void
+limits	.vscode/settings.json	/^        "limits": "cpp",$/;"	s	object:files.associations
+main	src/main.cpp	/^main(int argc, char const* argv[])$/;"	f	typeref:typename:int
+max_duty_time	src/cop.cpp	/^const uint8_t max_duty_time = 12;$/;"	v	typeref:typename:const uint8_t
+miDebuggerPath	.vscode/launch.json	/^            "miDebuggerPath": "gdb.exe",$/;"	s	object:configurations.0
+miDebuggerPath	.vscode/launch.json	/^            "miDebuggerPath": "lldb.exe",$/;"	s	object:configurations.1
+n_transitions_cop	src/cop.h	/^const uint16_t n_transitions_cop = 4;$/;"	v	typeref:typename:const uint16_t
+n_transitions_robber	src/robber.h	/^const uint16_t n_transitions_robber = 13;$/;"	v	typeref:typename:const uint16_t
+name	.vscode/launch.json	/^            "name": "(gdb) Launch",$/;"	s	object:configurations.0
+name	.vscode/launch.json	/^            "name": "(lldb) Launch",$/;"	s	object:configurations.1
+new	.vscode/settings.json	/^        "new": "cpp",$/;"	s	object:files.associations
+next	src/queue.h	/^    struct node* next;$/;"	m	struct:node	typeref:struct:node *
+node	src/queue.h	/^typedef struct node$/;"	s
+node_t	src/queue.h	/^} node_t;$/;"	t	typeref:struct:node
+obj	Makefile	/^obj = $(src:.cpp=.o)$/;"	m
+off_duty	src/cop.cpp	/^off_duty(Cop* cop, Robber* robber)$/;"	f	typeref:typename:void
+on_stake_out	src/cop.cpp	/^on_stake_out(Cop* cop, Robber* robber)$/;"	f	typeref:typename:void
+ostream	.vscode/settings.json	/^        "ostream": "cpp",$/;"	s	object:files.associations
+print_state_quote	src/fsm.cpp	/^print_state_quote(int state, const char** state_qoutes)$/;"	f	typeref:typename:void
+process_events	src/fsm.cpp	/^process_events(int* current_state, node_t** event_queue,$/;"	f	typeref:typename:void
+program	.vscode/launch.json	/^            "program": "${workspaceFolder}\/bin\/fsm.exe",$/;"	s	object:configurations.0
+program	.vscode/launch.json	/^            "program": "${workspaceFolder}\/bin\/fsm.exe",$/;"	s	object:configurations.1
+request	.vscode/launch.json	/^            "request": "launch",$/;"	s	object:configurations.0
+request	.vscode/launch.json	/^            "request": "launch",$/;"	s	object:configurations.1
+robbing_bank	src/robber.cpp	/^robbing_bank(Robber* robber, Cop* cop)$/;"	f	typeref:typename:void
+setupCommands	.vscode/launch.json	/^            "setupCommands": [$/;"	a	object:configurations.0
+setupCommands	.vscode/launch.json	/^            "setupCommands": [$/;"	a	object:configurations.1
+spot_cop	src/robber.cpp	/^spot_cop()$/;"	f	typeref:typename:int
+spot_robber	src/cop.cpp	/^spot_robber()$/;"	f	typeref:typename:int
+start_duty	src/cop.cpp	/^start_duty()$/;"	f	typeref:typename:int
+state	src/fsm.h	/^    int state;$/;"	m	struct:_STransition	typeref:typename:int
+state_functions	src/cop.cpp	/^static void (*state_functions[])(Cop*, Robber*) = { &off_duty, &on_stake_out,$/;"	v	typeref:typename:void (* [])(Cop *,Robber *)	file:
+state_functions	src/robber.cpp	/^static void (*state_functions[])(Robber*, Cop*) = {$/;"	v	typeref:typename:void (* [])(Robber *,Cop *)	file:
+state_qoutes	src/cop.cpp	/^const static char* state_qoutes[] = {$/;"	v	typeref:typename:const char * []	file:
+state_qoutes	src/robber.cpp	/^const static char* state_qoutes[] = {$/;"	v	typeref:typename:const char * []	file:
+stopAtEntry	.vscode/launch.json	/^            "stopAtEntry": false,$/;"	b	object:configurations.0
+stopAtEntry	.vscode/launch.json	/^            "stopAtEntry": false,$/;"	b	object:configurations.1
+streambuf	.vscode/settings.json	/^        "streambuf": "cpp",$/;"	s	object:files.associations
+strength	src/robber.h	/^    uint8_t strength;        \/\/ Strength level in percentage$/;"	m	struct:_Robber	typeref:typename:uint8_t
+text	.vscode/launch.json	/^                    "text": "-enable-pretty-printing",$/;"	s	object:configurations.0.setupCommands.0
+text	.vscode/launch.json	/^                    "text": "-enable-pretty-printing",$/;"	s	object:configurations.1.setupCommands.0
+transition_handler	src/fsm.h	/^    int32_t (*transition_handler)(void);$/;"	m	struct:_STransition	typeref:typename:int32_t (*)(void)
+transitions	src/cop.cpp	/^const STransition transitions[] = { { OffDuty, StartDuty, &start_duty },$/;"	v	typeref:typename:const STransition[]
+transitions	src/robber.cpp	/^const STransition transitions[] = {$/;"	v	typeref:typename:const STransition[]
+type	.vscode/launch.json	/^            "type": "cppdbg",$/;"	s	object:configurations.0
+type	.vscode/launch.json	/^            "type": "cppdbg",$/;"	s	object:configurations.1
+type_traits	.vscode/settings.json	/^        "type_traits": "cpp",$/;"	s	object:files.associations
+typeinfo	.vscode/settings.json	/^        "typeinfo": "cpp"$/;"	s	object:files.associations
+update_cop	src/cop.cpp	/^update_cop(Cop* cop, Robber* robber)$/;"	f	typeref:typename:void
+update_robber	src/robber.cpp	/^update_robber(Robber* robber, Cop* cop)$/;"	f	typeref:typename:void
+val	src/queue.h	/^    int val;$/;"	m	struct:node	typeref:typename:int
+wealth	src/robber.h	/^    int32_t wealth;          \/\/ Money levels$/;"	m	struct:_Robber	typeref:typename:int32_t

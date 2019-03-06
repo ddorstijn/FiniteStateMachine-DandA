@@ -16,7 +16,7 @@ const static char* state_qoutes[] = {
 ///                 ///
 
 void
-off_duty(Cop* cop)
+off_duty(Cop* cop, Robber* robber)
 {
     cop->dutyTime--;
 
@@ -26,9 +26,18 @@ off_duty(Cop* cop)
 }
 
 void
-on_stake_out(Cop* cop)
+on_stake_out(Cop* cop, Robber* robber)
 {
     cop->dutyTime++;
+
+    if (robber->active_state == RobbingBank) {
+        if (rand() % 8 == 0) {
+            robber->distance_to_cop = 0;
+            enqueue(&robber->events, SpotCop);
+            enqueue(&cop->events, Chasing);
+            return;
+        }
+    }
 
     if (cop->dutyTime >= max_duty_time) {
         enqueue(&cop->events, FinishDuty);
@@ -36,16 +45,23 @@ on_stake_out(Cop* cop)
 }
 
 void
-chasing(Cop* cop)
+chasing(Cop* cop, Robber* robber)
 {
     cop->dutyTime++;
+
+    if (cop->active_state == Chasing || rand() % 10 == 0) {
+        enqueue(&robber->events, GetCaught);
+        enqueue(&cop->events, CatchRobber);
+        return;
+    }
 
     if (cop->dutyTime >= max_duty_time) {
         enqueue(&cop->events, FinishDuty);
     }
 }
 
-static void (*state_functions[])(Cop*) = { &off_duty, &on_stake_out, &chasing };
+static void (*state_functions[])(Cop*, Robber*) = { &off_duty, &on_stake_out,
+                                                    &chasing };
 
 ///                 ///
 /// Event functions ///
@@ -75,16 +91,25 @@ spot_robber()
     return Chasing;
 }
 
+int
+catch_robber()
+{
+    printf("Aw yeah! Caught the robber. Let's look around for more filth. \n");
+    print_state_quote(OnStakeOut, state_qoutes);
+    return OnStakeOut;
+}
+
 const STransition transitions[] = { { OffDuty, StartDuty, &start_duty },
                                     { OnStakeOut, FinishDuty, &finish_duty },
                                     { OnStakeOut, SpotRobber, &spot_robber },
-                                    { Chasing, FinishDuty, &finish_duty } };
+                                    { Chasing, FinishDuty, &finish_duty },
+                                    { Chasing, CatchRobber, &catch_robber } };
 
 //
 void
-update_cop(Cop* cop)
+update_cop(Cop* cop, Robber* robber)
 {
-    (*state_functions[cop->active_state])(cop);
+    (*state_functions[cop->active_state])(cop, robber);
 }
 
 const STransition*

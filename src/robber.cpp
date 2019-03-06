@@ -17,7 +17,7 @@ const static char* state_qoutes[] = {
 ///                 ///
 
 void
-robbing_bank(Robber* robber)
+robbing_bank(Robber* robber, Cop* cop)
 {
     robber->wealth += 3;
     robber->strength--;
@@ -26,16 +26,10 @@ robbing_bank(Robber* robber)
         enqueue(&robber->events, GetRich);
         return;
     }
-
-    if (rand() % 20 == 0) {
-        robber->distance_to_cop = 0;
-        enqueue(&robber->events, SpotCop);
-        return;
-    }
 }
 
 void
-having_good_time(Robber* robber)
+having_good_time(Robber* robber, Cop* cop)
 {
     robber->wealth -= 2;
     robber->boredness++;
@@ -50,23 +44,12 @@ having_good_time(Robber* robber)
         robber->boredness = 0;
         return;
     }
-
-    if (rand() % 20 == 0) {
-        robber->distance_to_cop = 0;
-        enqueue(&robber->events, SpotCop);
-        return;
-    }
 }
 
 void
-fleeing(Robber* robber)
+fleeing(Robber* robber, Cop* cop)
 {
     robber->wealth--;
-
-    if (rand() % 10 == 0) {
-        enqueue(&robber->events, GetCaught);
-        return;
-    }
 
     if (rand() % 10 == 0) {
         enqueue(&robber->events, GetTired);
@@ -81,7 +64,7 @@ fleeing(Robber* robber)
 }
 
 void
-laying_low(Robber* robber)
+laying_low(Robber* robber, Cop* cop)
 {
     robber->strength++;
 
@@ -92,7 +75,7 @@ laying_low(Robber* robber)
 }
 
 void
-gambling(Robber* robber)
+gambling(Robber* robber, Cop* cop)
 {
     robber->wealth -= 5;
 
@@ -109,7 +92,7 @@ gambling(Robber* robber)
 }
 
 void
-imprisoned(Robber* robber)
+imprisoned(Robber* robber, Cop* cop)
 {
     robber->strength++;
 
@@ -117,11 +100,16 @@ imprisoned(Robber* robber)
         enqueue(&robber->events, EscapePrison);
         return;
     }
+
+    if (rand() % 10 == 0) {
+        printf("I am in for death sentence. This is the end.");
+        exit(0);
+    }
 }
 
-static void (*state_functions[])(Robber*) = { robbing_bank, having_good_time,
-                                              fleeing,      laying_low,
-                                              gambling,     imprisoned };
+static void (*state_functions[])(Robber*, Cop*) = {
+    robbing_bank, having_good_time, fleeing, laying_low, gambling, imprisoned
+};
 
 ///                 ///
 /// Event functions ///
@@ -209,9 +197,9 @@ const STransition transitions[] = {
 };
 
 void
-update_robber(Robber* robber)
+update_robber(Robber* robber, Cop* cop)
 {
-    (*state_functions[robber->active_state])(robber);
+    (*state_functions[robber->active_state])(robber, cop);
 }
 
 const STransition*

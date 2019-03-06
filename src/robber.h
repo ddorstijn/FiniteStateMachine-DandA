@@ -3,6 +3,10 @@
 
 #include "fsm.h"
 
+#include "cop.h"
+
+typedef struct _Cop Cop;
+
 typedef struct _Robber
 {
     int active_state;
@@ -38,7 +42,7 @@ enum RobberEvents
 };
 
 void
-update_robber(Robber* robber);
+update_robber(Robber* robber, Cop* cop);
 
 const STransition*
 get_transition_table_robber();
