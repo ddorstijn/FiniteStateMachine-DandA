@@ -1,3 +1,4 @@
+#include "cop.h"
 #include "robber.h"
 
 #ifdef _WIN32
@@ -17,14 +18,22 @@ main(int argc, char const* argv[])
     robber.distance_to_cop = 10;
     robber.events = NULL;
 
+    Cop cop;
+    cop.active_state = OnStakeOut;
+    cop.dutyTime = 0;
+    cop.events = NULL;
+
     while (true) {
-        (*state_functions[robber.active_state])(&robber);
-        process_events(&robber.active_state, &robber.events, transitions,
-                       n_transitions);
+        update_robber(&robber);
+        update_cop(&cop);
+        process_events(&robber.active_state, &robber.events,
+                       get_transition_table_robber(), n_transitions_robber);
+        process_events(&cop.active_state, &cop.events,
+                       get_transition_table_cop(), n_transitions_cop);
 
         // sleep:
 #ifdef _WIN32
-        // Sleep(1000);
+        Sleep(1000);
 #else
         // sleep(1);
 #endif

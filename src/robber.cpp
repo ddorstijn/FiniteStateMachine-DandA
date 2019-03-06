@@ -3,6 +3,15 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+const static char* state_qoutes[] = {
+    "I'm robbing banks and getting loads of money! Pew pew!",
+    "I'm having a good time spending my money.",
+    "I'm currently on the run.",
+    "I'm taking it easy and laying low for now.",
+    "I feel like the luckiest man on earth! Let's go casino. ",
+    "I got caught and have to spand time in prison :("
+};
+
 ///                 ///
 /// State functions ///
 ///                 ///
@@ -110,6 +119,10 @@ imprisoned(Robber* robber)
     }
 }
 
+static void (*state_functions[])(Robber*) = { robbing_bank, having_good_time,
+                                              fleeing,      laying_low,
+                                              gambling,     imprisoned };
+
 ///                 ///
 /// Event functions ///
 ///                 ///
@@ -177,4 +190,32 @@ spot_cop()
     printf("I see a cop, so I have to start running!\n");
     print_state_quote(Fleeing, state_qoutes);
     return Fleeing;
+}
+
+const STransition transitions[] = {
+    { RobbingBank, GetRich, &get_rich },
+    { RobbingBank, SpotCop, &spot_cop },
+    { HavingGoodTime, GetTired, &get_tired },
+    { HavingGoodTime, GetBroke, &get_broke },
+    { HavingGoodTime, SpotCop, &spot_cop },
+    { HavingGoodTime, GetBored, &get_bored },
+    { Fleeing, FeelSafe, &feel_safe },
+    { Fleeing, GetTired, &get_tired },
+    { Fleeing, GetCaught, &get_caught },
+    { LayingLow, FeelSafe, &feel_safe },
+    { Gambling, SpotCop, &spot_cop },
+    { Gambling, GetBroke, &get_broke },
+    { Imprisoned, EscapePrison, &escape },
+};
+
+void
+update_robber(Robber* robber)
+{
+    (*state_functions[robber->active_state])(robber);
+}
+
+const STransition*
+get_transition_table_robber()
+{
+    return transitions;
 }

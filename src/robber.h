@@ -3,16 +3,6 @@
 
 #include "fsm.h"
 
-enum State
-{
-    RobbingBank,
-    HavingGoodTime,
-    Fleeing,
-    LayingLow,
-    Gambling,
-    Imprisoned
-};
-
 typedef struct _Robber
 {
     int active_state;
@@ -25,7 +15,17 @@ typedef struct _Robber
     node_t* events; // An event queue for transition events
 } Robber;
 
-enum Events
+enum RobberState
+{
+    RobbingBank,
+    HavingGoodTime,
+    Fleeing,
+    LayingLow,
+    Gambling,
+    Imprisoned
+};
+
+enum RobberEvents
 {
     GetRich,
     SpotCop,
@@ -37,85 +37,12 @@ enum Events
     EscapePrison
 };
 
-///                 ///
-/// State functions ///
-///                 ///
-
 void
-robbing_bank(Robber* robber);
+update_robber(Robber* robber);
 
-void
-having_good_time(Robber* robber);
+const STransition*
+get_transition_table_robber();
 
-void
-fleeing(Robber* robber);
-
-void
-laying_low(Robber* robber);
-
-void
-gambling(Robber* robber);
-
-void
-imprisoned(Robber* robber);
-
-static void (*state_functions[6])(Robber*) = { robbing_bank, having_good_time,
-                                               fleeing,      laying_low,
-                                               gambling,     imprisoned };
-
-const static char* state_qoutes[] = {
-    "I'm robbing banks and getting loads of money! Pew pew!",
-    "I'm having a good time spending my money.",
-    "I'm currently on the run.",
-    "I'm taking it easy and laying low for now.",
-    "I feel like the luckiest man on earth! Let's go casino. ",
-    "I got caught and have to spand time in prison :("
-};
-
-///                 ///
-/// Event functions ///
-///                 ///
-
-int
-get_rich();
-
-int
-get_tired();
-
-int
-get_caught();
-
-int
-get_bored();
-
-int
-get_broke();
-
-int
-feel_safe();
-
-int
-escape();
-
-int
-spot_cop();
-
-const static STransition transitions[] = {
-    { RobbingBank, GetRich, &get_rich },
-    { RobbingBank, SpotCop, &spot_cop },
-    { HavingGoodTime, GetTired, &get_tired },
-    { HavingGoodTime, GetBroke, &get_broke },
-    { HavingGoodTime, SpotCop, &spot_cop },
-    { HavingGoodTime, GetBored, &get_bored },
-    { Fleeing, FeelSafe, &feel_safe },
-    { Fleeing, GetTired, &get_tired },
-    { Fleeing, GetCaught, &get_caught },
-    { LayingLow, FeelSafe, &feel_safe },
-    { Gambling, SpotCop, &spot_cop },
-    { Gambling, GetBroke, &get_broke },
-    { Imprisoned, EscapePrison, &escape },
-};
-
-const uint16_t n_transitions = 13;
+const uint16_t n_transitions_robber = 13;
 
 #endif // ROBBER_H
