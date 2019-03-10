@@ -33,7 +33,7 @@ main(int argc, char const* argv[])
 
         // sleep:
 #ifdef _WIN32
-        Sleep(1000);
+        // Sleep(1000);
 #else
         /* sleep(1); */
 #endif

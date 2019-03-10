@@ -96,7 +96,7 @@ imprisoned(Robber* robber, Cop* cop)
 {
     robber->strength++;
 
-    if (robber->strength > 15) {
+    if (robber->strength > 25) {
         enqueue(&robber->events, EscapePrison);
         return;
     }

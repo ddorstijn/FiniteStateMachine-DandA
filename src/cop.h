@@ -36,6 +36,6 @@ update_cop(Cop* cop, Robber* robber);
 const STransition*
 get_transition_table_cop();
 
-const uint16_t n_transitions_cop = 4;
+const uint16_t n_transitions_cop = 5;
 
 #endif // COP_H

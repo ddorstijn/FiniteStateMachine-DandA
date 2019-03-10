@@ -49,7 +49,7 @@ chasing(Cop* cop, Robber* robber)
 {
     cop->dutyTime++;
 
-    if (cop->active_state == Chasing || rand() % 10 == 0) {
+    if (cop->active_state == Chasing && rand() % 10 == 0) {
         enqueue(&robber->events, GetCaught);
         enqueue(&cop->events, CatchRobber);
         return;
